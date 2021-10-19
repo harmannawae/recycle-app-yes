@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="success" >
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+   </ion-buttons>
+        <ion-title>
+          ตรวจสอบรายละเอียด
+        </ion-title> 
+    </ion-toolbar>
+  </ion-header>
+<!--สิ้นสุด header-->
+
+<ion-content  class="bg">
+
+  <ion-item color="non">
+    <ion-label position="floating">ชื่อ</ion-label>
+    <ion-input [(ngModel)]="user_name"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">นามสกุล</ion-label>
+    <ion-input [(ngModel)]="user_lastname"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">เบอร์โทร</ion-label>
+    <ion-input [(ngModel)]="user_phone"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">ที่อยู้</ion-label>
+    <ion-input type="textarea"[(ngModel)]="user_address"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">ประเภท</ion-label>
+    <ion-input [(ngModel)]="p_name"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">น้ำหนัก</ion-label>
+    <ion-input [(ngModel)]="weight"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">ราคาต่อ กก.</ion-label>
+    <ion-input [(ngModel)]="p_price"></ion-input>
+  </ion-item>
+  <ion-item color="non">
+    <ion-label position="floating">ราคารวม</ion-label>
+    <ion-input [(ngModel)]="total"></ion-input>
+  </ion-item>
+<ion-button id="btn-save" color="danger" expand="block" size="small" (click)="save()">ยืนยันการรับออเดอร์</ion-button>
+</ion-content>

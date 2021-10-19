@@ -1,0 +1,69 @@
+<ion-header [translucent]="true" *ngIf="user_type=='admin'">
+  <ion-toolbar color="warning" >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+ </ion-buttons>
+      <ion-title>
+        ข่าวสาร
+      </ion-title>
+      <ion-buttons slot="primary">
+          <ion-button routerLink="/menu-newspaper-add">
+              <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true" *ngIf="user_type=='member'">
+  <ion-toolbar color="tertiary" >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+ </ion-buttons>
+      <ion-title>
+      ข่าวสาร
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true"  *ngIf="user_type=='rider'">
+    <ion-toolbar color="success" >
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+   </ion-buttons>
+        <ion-title>
+          ข่าวสาร
+        </ion-title> 
+    </ion-toolbar>
+  </ion-header>
+<!--สิ้นสุด header-->
+
+<ion-content>
+
+  <ion-card *ngFor="let n of newspapers">
+    <img src="{{ n.image }}">
+    <ion-card-header>
+      <ion-card-subtitle>{{ n.n_title }}</ion-card-subtitle>
+      <ion-card-title>{{ n.n_name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{ n.n_content }} </ion-card-content>
+
+     <ion-button
+                color="warning"
+                *ngIf="user_type=='admin'"
+                expand="block"
+                size="small"
+                routerLink="/newspaper-edit/{{ n.n_id }}">
+                แก้ไข
+         </ion-button>
+
+    <ion-button
+                color="danger"
+                *ngIf="user_type=='admin'"
+                expand="block"
+                size="small"
+                (click)="del(n.n_id)">
+                ลบ
+         </ion-button>
+  </ion-card>
+
+</ion-content>

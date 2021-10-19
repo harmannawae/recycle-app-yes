@@ -1,0 +1,80 @@
+<ion-header [translucent]="true" *ngIf="user_type=='admin'">
+    <ion-toolbar color="warning" >
+        <ion-title>
+            สำหรับadmin
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-header [translucent]="true" *ngIf="user_type=='member'">
+    <ion-toolbar color="tertiary" >
+        <ion-title>
+            สำหรับผู้ขายขยะ
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-header [translucent]="true"  *ngIf="user_type=='rider'">
+      <ion-toolbar color="success" >
+          <ion-title>
+            สำหรับผู้รับซื้อขยะ
+          </ion-title> 
+      </ion-toolbar>
+    </ion-header>
+  <!--สิ้นสุด header-->
+
+<ion-content [fullscreen]="true">
+
+    
+
+    <div>
+        <div class="title" *ngIf="user_type=='member'">เลือกรายการที่ต้องการ</div>
+        <ion-button class="btn-item" color="danger" expand="block" size="large" routerLink="/menu-post-sell" *ngIf="user_type=='member'">
+            <div>ฉันต้องการขายขยะ</div>
+        </ion-button>
+    </div>
+
+    <div class="title">รายการ</div>
+      <ion-grid>
+        <ion-row>
+            <!--สำหรับmember-->
+            <!--แสดงเมนูสำหรับmember คำสั่ง  *ngIf="user_type=='member'" -->
+            <ion-col class="menu-item" *ngIf="user_type=='member'">
+                <a routerLink="/menu-member">
+                    <img src="assets/icon/all.png">
+                    <div>รายการของฉัน</div>
+                </a>
+            </ion-col>
+            <ion-col class="menu-item" *ngIf="user_type=='member'">
+                <a routerLink="/history-member">
+                    <img src="assets/icon/checklist.png">
+                    <div>ประวัติการขายขยะที่ผ่านมา</div>
+                </a>
+            </ion-col>
+
+             <!--สำหรับrider-->
+             <!--แสดงเมนูสำหรับrider คำสั่ง  *ngIf="user_type=='rider'" -->
+             <ion-col class="menu-item" *ngIf="user_type=='rider'">
+                <a routerLink="/order-get">
+                    <img src="assets/icon/all.png">
+                    <div>รายการออเดอร์</div>
+                </a>
+            </ion-col>
+            <ion-col class="menu-item" *ngIf="user_type=='rider'">
+                <a routerLink="/order-history-rider">
+                    <img src="assets/icon/checklist.png">
+                    <div>ประวัติการซื้อขยะที่ผ่านมา</div>
+                </a>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="menu-item">
+                <a routerLink="/product-get">
+                    <img src="assets/icon/trash.png" />
+                    <div>ราคาขยะวันนี้</div>
+                </a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

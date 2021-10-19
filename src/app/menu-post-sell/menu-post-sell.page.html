@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ขายขยะ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item>
+    <ion-label>ประเภทขยะ</ion-label>
+    <ion-select placeholder="โปรดเลือก" [(ngModel)]="type">
+      <ion-select-option *ngFor="let t of types" value="{{ t.p_id }}">
+          {{ t.p_name }} ราคา {{ t.p_price }} บ./กก.
+      </ion-select-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">น้ำหนัก</ion-label>
+    <ion-input [(ngModel)]="weight"></ion-input>
+  </ion-item>
+  
+
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" (click)="save()">บันทึก</ion-button>
+  </ion-toolbar>
+</ion-footer>

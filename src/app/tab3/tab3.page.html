@@ -1,0 +1,39 @@
+<ion-header [translucent]="true" *ngIf="user_type=='admin'">
+  <ion-toolbar color="warning" >
+      <ion-title>
+          สำหรับadmin
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-button color="warning">Warning</ion-button>
+<ion-header [translucent]="true" *ngIf="user_type=='member'">
+  <ion-toolbar color="tertiary" >
+      <ion-title>
+          สำหรับผู้ขายขยะ
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true"  *ngIf="user_type=='rider'">
+    <ion-toolbar color="success" >
+        <ion-title>
+          สำหรับผู้รับซื้อขยะ
+        </ion-title> 
+    </ion-toolbar>
+</ion-header>
+<!--สิ้นสุด header-->
+<ion-content [fullscreen]="true">
+   <ion-button  
+        class="btn-logout"
+        color="non" 
+        expand="block" 
+        size="small" 
+        routerLink="/profile"> 
+            <div>
+              โปรไฟล์
+            </div>
+    </ion-button>
+    <ion-button  class="btn-logout" color="non" expand="block" size="small" routerLink="/about">เกี่ยวกับ</ion-button>
+
+  <ion-button  class="btn-logout" color="non" expand="block" size="small" (click)="logout()">ออกจากระบบ</ion-button>
+</ion-content>
